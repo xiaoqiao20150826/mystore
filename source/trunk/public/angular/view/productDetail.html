@@ -1,0 +1,145 @@
+<!-- 상품 상세 페이지 (item_id로 상세페이지에  projectDB를 뿌려줌 ) -->
+
+<div>
+  <!-- 위의 singleProduct는 controller에서 $scope.singleProduct로 지정한 상품 하나하나를 의미함. -->
+  <h4 span style="color:#37C3C3" align='center'>{{singleProduct.brand}}</h4>
+  <h4 span style="color:#37C3C3" align='center'>{{singleProduct.things}}
+  </h4>
+
+  <div class="table-responsive" >
+
+  <hr width="800">
+
+  <table align=center class="detailtable" cellspacing="5">
+    <tr>
+      <td rowspan="4" colspan="2"><img ng-src="../images/{{img}}" class="detail"></td>
+      <td> 가 격 &nbsp; </td>
+      <td align='right'> {{singleProduct.price}} 원</td>
+    </tr>
+
+    <tr>
+      <td> 배송비 &nbsp;</td>
+      <td align='right'>{{singleProduct.delivery_charge}} 원</td>
+    </tr>
+
+    <tr>
+      <td> 수량 &nbsp; </td>
+      <td align='right' ><input class="span3 text-center" type="number" min="1" max="1000000"  ng-model="singleProduct.qty" /></td>
+
+    </tr>
+
+    <tr>
+      <td> 합계 </td>
+      <td align=right>{{singleProduct.price*singleProduct.qty+singleProduct.delivery_charge}} 원 </td>
+    </tr>
+  </table>
+
+  </br>
+
+  <div align=center>
+    <!--  order.html로 이동 -->
+    <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}/{{singleProduct.item_id}}/order"><button ng-click="orderSetQty(singleProduct.item_id, singleProduct)" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> 주문하기</button></a>
+
+    <!-- cart.html로 이동 -->
+    <a href="#/shoppingcart"><button class="btn btn-warning" ng-click="addCart()" ><span class="glyphicon glyphicon-shopping-cart"></span> 장바구니에 담기</button></a>
+    
+    <!-- 이전 list페이지로 이동 -->
+    <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}"><button class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span> 되돌아가기</button></a>
+  </div>
+
+  <hr width="800">
+
+  <table width="600" align=center>
+    <tr>
+      <td></td>
+      <td align=center colspan="2" >{{singleProduct.description}}</td>
+      <td></td>
+    </tr>
+  </table>
+
+  </br> </br>
+
+  <hr width="800">
+</div>
+
+<div align="center" id="evaluation">
+
+
+
+<div id="evaluation-form" class="column" ng-show="userSession" align="center">
+  <div class="col-sm-8 col-sm-offset-1" align="center">
+    <form>
+      <div class="form-group" >
+       
+        <input type="text" class="form-control  text-center" placeholder="상품평을 입력하세요" ng-model="singleProduct.evaluation">
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2">
+  <button type="submit" class="btn btn-primary " ng-click="createEvaluation()"><span class="glyphicon glyphicon-pencil"></span> 등록</button>
+  </div>
+</div>
+
+
+
+<div id="evaluation-list" >
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="table-responsive" >
+    <h5 span style="color:#088A85">위 상품을 구매하신 분들의 상품평입니다.</h5>
+      <table class="table">
+
+        <tr>      
+          <th width="300">상&nbsp;품&nbsp;평</th>
+          <th width="150">작&nbsp;성&nbsp;자</th>
+          <th width="150">작&nbsp;성&nbsp;일</th>
+          <th>삭&nbsp;제</th>
+        </tr>
+
+        <tr ng-repeat="eval in evaluation | offset: currentPage*itemsPerPage | limitTo: itemsPerPage">     
+          <td width="300">{{ eval.evaluation }}</td>
+          <td>{{ eval.fullName }}</td>
+          <td>{{ eval.time}}</td>       
+          <td><button ng-show="getusername() == eval.username" ng-click = 'deleteeval(eval._id)' class="btn- btn-warning btn-sm">
+          <span class="glyphicon glyphicon-remove"/></button></td>
+
+        </tr>
+      </table>
+
+    <tfoot align="center">
+        <td colspan="3">
+          <div class="pagination">
+            <ul class="pagination">
+              <li>
+                <a href ng-click="prevPage()">&laquo;</a>
+              </li>
+              <li ng-repeat="n in range()" 
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage(n)">
+                  <a href="">{{n+1}}</a>
+              </li>
+              <li>
+                <a href ng-click="nextPage()">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+     </tfoot>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+
+/* sub_category.css */
+
+
+.table {
+  width: 70%;
+  margin: 0;
+  /*background: #FFFFFF;*/
+  border: 1px ;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+}
+.td {
+  border-bottom: 1px ;
+  padding: 6px 16px;
+  /*background: #FFFFFF;*/
+  text-align: center;
+}
+.productmainList {
+  /*background: #EEEEEE;*/
+  border-bottom: 1px ;
+  text-align: center;
+}
+
+.img {
+  height:100px;
+  width:100px;
+ }

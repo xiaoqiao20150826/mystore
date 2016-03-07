@@ -1,0 +1,29 @@
+{
+  "name": "MEAN Shop",
+  "version": "1.0.0",
+  "description": "Shopping Mall",
+  "keywords": [
+    "Chan",
+    "JuYeon",
+    "YoungIl",
+    "SeongJong"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.19",
+    "angular-route": "~1.2.19",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "angular-bootstrap": "~0.11.0",
+    "angular-animate": "~1.2.20",
+    "angular-strap": "~2.0.3"
+  }
+}

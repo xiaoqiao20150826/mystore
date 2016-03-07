@@ -1,0 +1,113 @@
+<!-- 장바구니 cart.html 현재 css부분 table 라인엉망 ㅠ ㅠ  0711 -->
+
+<br/>
+
+<h2 align=center class="text-info" >
+<span class="glyphicon glyphicon-shopping-cart" ></span> 장바구니
+</h2>
+<hr width="800">
+<br/>
+
+
+<div class="table-responsive">
+
+ <div class="row-fluid">
+
+  <div align="center">
+    <table class="cart" text-align="center" >
+     <tr>
+      <td colspan="5"><p> 총 ({{ carts.length }})개 종류의 상품이 담겨져 있습니다 </p></td>
+      <td colspan="5" align="right">
+      정렬 : &nbsp;
+       <select ng-model="cartorderby">
+        <option value="-time">최근담은순</option>
+        <option value="price">가격순</option>
+        <option value="things">이름순</option>
+       </select>
+      </td>
+     </tr>
+      
+     <tr class="labeltable">
+      <td><b>제&nbsp;품&nbsp;명</b></td>
+      <td><b>수&nbsp;량</b></td>
+      <td><b>가&nbsp;격</b></td>                  
+      <td><b>배&nbsp;송&nbsp;비</b></td>
+      <td><b>합&nbsp;계</b></td>      
+      <!-- <td><b>담&nbsp;은&nbsp;시&nbsp;간</b></td>   -->
+      <td><b>삭&nbsp;제</b></td>
+      <td><b>결&nbsp;제</b></td>    
+     </tr>  
+
+     <tr ng-repeat="cartProduct in carts | orderBy:cartorderby | offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+       <td>({{cartProduct.brand}})<br/>{{cartProduct.things}}</td>
+       <td>
+        <div class="input-append">
+         <input id='qty' class="span1 text-center" type="number" min="1" max="1000000" ng-model="cartProduct.qty" />개 &nbsp;
+         <button class="btn btn-info btn-sm" ng-click='modifyqty(cartProduct._id, cartProduct)'><span class="glyphicon glyphicon-ok"></span></button>
+        </div>
+       </td>
+       <td>{{cartProduct.price}}원</td>
+       <td>{{cartProduct.delivery_charge}}원</td>
+       <td class="totalPrice">
+          {{cartProduct.price*cartProduct.qty+cartProduct.delivery_charge}}원</a></td>     
+      <!--  <td>{{cartProduct.time}}</td> -->
+       <td><button ng-click = 'deleteCartbyId(cartProduct._id)' class="btn- btn-warning btn-sm">
+          <span class="glyphicon glyphicon-remove"/></button></td>
+
+       <td><a href="#/{{cartProduct.upper_category}}/{{cartProduct.sub_category}}/{{cartProduct.item_id}}/order"><button ng-click ='orderSetQty(cartProduct.item_id, cartProduct) ; getpaymentInCartItem(cartProduct.item_id)'  class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span></button></a>
+       </td>   
+     </tr>
+    
+    <!-- 일단 장바구니 총 상품 총 합계는 나중에 구현하도록  -->
+    <!--  <tr class="labeltable">
+       <td><b>총 결제 비용</b></td>
+       <td> &nbsp;</td> 
+       <td><b>총 {{getTotalCount()}} 개</b></td>
+       <td> &nbsp;</td> 
+       <td><b> 총 {{getTotalPrice()}} 원</b></td>      
+       <td><b> {{getTotalPrice()}} </b></td> 
+       <td> &nbsp;</td>   
+       <td> &nbsp;</td>        
+     </tr> -->
+
+    </table>
+   </div>
+   
+  
+
+ <div class="tfoot">
+    <tfoot >
+        <td colspan="3">
+          <div class="pagination">
+            <ul class="pagination">
+              <li>
+                <a href ng-click="prevPage()">&laquo;</a>
+              </li>
+              <li ng-repeat="n in range()" 
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage(n)"
+                 >
+                  <a href="">{{n+1}}</a>
+              </li>
+              <li>
+                <a href ng-click="nextPage()">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tfoot>
+ </div>
+
+   <hr width="800">
+
+   <div class="tfoot" >
+    <!--  productList.html(main)로 이동    -->
+      <a href="/#"><button class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-music"></span> 계속 쇼핑하기</button></a>
+
+     <!-- 클릭한 상품 삭제하기 기능 아직 못 구현해 냄 -->
+     <!--  <button class="btn btn-default" ng-click="clearCart()" ng-disabled="cart.getTotalCount() < 1"> <span class="glyphicon glyphicon-trash"></span>장바구니 비우기</button> -->
+     <br /> <br />
+  </div>
+ 
+ </div>  
+</div>

@@ -1,0 +1,12 @@
+<div ng-controller="mainController">
+  <div style="height: 305px">
+    <carousel interval="myInterval">
+      <slide ng-repeat="rowProduct in totalProduct" active="slide.active">
+        <img ng-src="../images/{{rowProduct.picture_url}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>{{rowProduct.things}}</h4>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>

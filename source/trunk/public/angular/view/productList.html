@@ -1,0 +1,96 @@
+<div class='row' align="center">
+<!-- 추천상품  -->
+  <div class="col-md-3 " id="recommend" style="height: 305px" ng-show="userSession" class="imageslide" ng-switch='slideshow2' ng-animate="'animate'">
+    <h3 align="center"><b>{{userSession.fullName}}님의 추천 상품</b></h3>
+    <h4 align="center">{{userSession.fullName}}님의 최근 관심 분야 추천!
+     <span style="color:red">Best 5!</span></h4>
+    <div class="slider-content" ng-switch-when="1">
+      <a href="#/잡화/시계/B3-001"><img src="images/B3-001.jpg" width="300px" height="250px"/></a>
+    </div>  
+    <div class="slider-content" ng-switch-when="2">
+       <a href="#/잡화/시계/B3-002"><img src="images/B3-002.jpg" width="300px" height="250px"/></a>
+    </div>
+    <div class="slider-content" ng-switch-when="3">
+      <a href="#/잡화/시계/B3-003"><img src="images/B3-003.jpg" width="300px" height="250px"/></a>
+    </div>  
+    <div class="slider-content" ng-switch-when="4">
+       <a href="#/잡화/시계/B3-009"><img src="images/B3-009.jpg" width="300px" height="250px"/></a>
+    </div> 
+    <div class="slider-content" ng-switch-when="5">
+       <a href="#/잡화/시계/B3-010"><img src="images/B3-010.jpg" width="300px" height="250px"/></a>
+    </div>  
+  </div>
+
+<!-- MD추천상품 -->
+  <div class="col-md-3 col-md-offset-2" id="recommend2" style="height: 305px" class="imageslide" ng-switch='slideshow2' ng-animate="'animate'">
+    <h3 align="center"><b>MD 추천 상품</b>
+    <h4 align="center"></br>여성가방 특가 세일</h4>
+    <div class="slider-content" ng-switch-when="1">
+      <a href="#/잡화/여성가방/B1-001"><img src="images/B1-001.jpg" width="300px" height="250px"/></a>
+    </div>  
+    <div class="slider-content" ng-switch-when="2">
+       <a href="#/잡화/여성가방/B1-002"><img src="images/B1-002.jpg" width="300px" height="250px"/></a>
+    </div>
+    <div class="slider-content" ng-switch-when="3">
+      <a href="#/잡화/여성가방/B1-003"><img src="images/B1-003.jpg" width="300px" height="250px"/></a>
+    </div>  
+    <div class="slider-content" ng-switch-when="4">
+       <a href="#/잡화/여성가방/B1-006"><img src="images/B1-006.jpg" width="300px" height="250px"/></a>
+    </div> 
+    <div class="slider-content" ng-switch-when="5">
+       <a href="#/잡화/여성가방/B1-005"><img src="images/B1-005.jpg" width="300px" height="250px"/></a>
+    </div>  
+  </div>
+
+<!-- 로그인 시 없어지는 신규가입 및 광고 2개 -->
+  <div id="sidebar4" class="col-md-1 col-md-offset-1" ng-hide="userSession"> 
+   <div id="sidebar2"  ng-switch='slideshow3' ng-animate="'animate'" >
+     <div class="slider-content" ng-switch-when='1'>
+     <a href="#register"><img ng-src="../images/ad/ad4.jpg"></a></div>
+     <div class="slider-content" ng-switch-when='2'>
+     <a href="#register"><img ng-src="../images/ad/ad5.jpg"></a></div>
+   </div>
+   
+   <div id="sidebar3"  ng-switch='slideshow4' ng-animate="'animate'" >
+     <div class="slider-content" ng-switch-when='1'>
+     <a href="#/스포츠.레저/등산.텐트.침낭.용품"><img ng-src="../images/ad/ad6.jpg"></a></div>
+     <div class="slider-content" ng-switch-when='2'>
+     <a href="#/잡화/명품"><img ng-src="../images/ad/ad7.jpg"></a></div>
+     <div class="slider-content" ng-switch-when='3'>
+     <a href="#/화장품/스킨케어"><img ng-src="../images/ad/ad8.jpg"></a></div>
+   </div>
+  </div>
+
+<!-- 우측에 보이는 광고 화면 slider기능으로 mainCtrl 기능 추가/ngAnimate Module 추가   -->
+ <div id="sidebar" class="col-md-1 col-md-offset-1" ng-switch='slideshow' ng-animate="'animate'" >
+   <div class="slider-content" ng-switch-when='1'>
+     <a href="#/여성의류/여성원피스"><img ng-src="../images/ad/ad1.jpg"></a></div>
+   <div class="slider-content" ng-switch-when='2'>
+     <a href="#/가구.침구.인테리어/침구류"><img ng-src="../images/ad/ad2.jpg"></a></div>
+   <div class="slider-content" ng-switch-when='3'>
+     <a href="#/식품/신선식품(과일)"><img ng-src="../images/ad/ad3.jpg"></a></div>       
+ </div> 
+
+ </div>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container marketing">
+  <h3 align="center"> 8월 초특가 <span style="color:blue">대박 상품</span>  <span style="color:red">Best 3</span> </h3>
+  </br>
+  <div class="row">
+    <div class="col-lg-4" ng-repeat="rowProduct in CheapestProducts" >
+     <div class="thumbnail" >
+      <a href="#/{{rowProduct.upper_category}}/{{rowProduct.sub_category}}/{{rowProduct.item_id}}" ><img class="img-rounded" ng-src="../images/{{rowProduct.picture_url}}" alt="Generic placeholder image"></a>
+      </br> 
+      <p>{{rowProduct.things}}</p>
+      <p>{{rowProduct.price}}원</p>
+
+     </div>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+</div>
+

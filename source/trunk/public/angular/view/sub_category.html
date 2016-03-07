@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <h4 align=center span style="color:#37C3C3">
+  {{sub_category}} 페이지 입니다.</h4>
+
+  </br>
+
+  <div class="table-responsive" align="center">
+    <div class="row-fluid">
+      <table class="table" text-align="center">
+        <tr>
+          <td colspan="2">
+            검색 : <input ng-model="query">
+          </td>
+          <td colspan="2" align="right">
+          정렬 :
+            <select ng-model="order">
+              <option value="price">가격순</option>
+              <option value="things">이름순</option>
+              <option value="item_id">제품번호</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr class="productmainList" align="center">
+        <!-- <td>사진 공간</td> -->
+          <td colspan="2">
+          상 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 품</td>
+          <td>가&nbsp;격</td>
+          <td>배송비</td>
+        </tr>
+
+        <tr ng-repeat='subcategoryProduct in subcategoryProducts | filter:query | orderBy:order | offset: currentPage*itemsPerPage | limitTo: itemsPerPage ' class="productmainList">
+          <td><img class="img" ng-src="../images/{{subcategoryProduct.picture_url}}" ></td>
+          <td class="td"><b>({{subcategoryProduct.brand}})</b></br>
+            <a href="#/{{subcategoryProduct.upper_category}}/{{subcategoryProduct.sub_category}}/{{subcategoryProduct.item_id}}">{{subcategoryProduct.things}}</b></td></a>
+          <td align="center"><b>{{subcategoryProduct.price}}원</b></td>
+          <td align="center"><b>{{subcategoryProduct.delivery_charge}}원</b></td>
+        </tr>
+      </table>
+
+      <!--  pagination 기능 -->
+      <!-- pagination 기능을 위해 SBCtrl와 service부분에 offset이라는 filter를 이용하였다. -->
+      <tfoot align="center">
+        <td colspan="3">
+          <div class="pagination">
+            <ul class="pagination">
+              <li>
+                <a href ng-click="prevPage()">&laquo;</a>
+              </li>
+              <li ng-repeat="n in range()" 
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage(n)">
+                  <a href="">{{n+1}}</a>
+              </li>
+              <li>
+                <a href ng-click="nextPage()">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tfoot>
+
+    </div>
+  </div>
+</div>
+

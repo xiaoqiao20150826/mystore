@@ -1,0 +1,48 @@
+/*cart.css */
+
+.cart{
+    /*서로 이웃하는 테이블이나 셀의 테두리선을 겹쳐서 표현. ./////현재 나오지 않음 ㅠㅠ///// */ 
+    border-collapse:collapse;
+    border-bottom: 1px ;
+    width: 60%;
+    height: 35px;
+    text-align: center;
+    vertical-align: center;
+    /*margin: 15px;*/
+}
+
+.incarttable {
+    text-align: center;
+    border-bottom: 1px ;
+    margin-top:3px;
+}
+
+.carttable tr{
+    text-align: center;
+    border-bottom: 1px ;
+    margin-top:3px;
+}
+
+.carttable td{
+    text-align: center;
+    margin-top:3px;
+    margin-right:3px;
+    margin-left: 3px;
+    border-bottom: 1px ;
+    margin-bottom: 3px;
+    padding: 6px 6px;
+}
+
+
+.labeltable{
+    text-align: center; 
+    vertical-align: center;
+    background-color: #EFFBFB;
+    border-bottom: 1px ;
+    height: 40px;
+}
+
+.tfoot{
+    text-align: center; 
+    vertical-align: center;
+}

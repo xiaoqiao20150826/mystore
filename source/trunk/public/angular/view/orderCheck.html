@@ -1,0 +1,62 @@
+<!-- 주문완료 페이지 -->
+
+<br/>
+
+<h2 align=center class="text-info"><span class="glyphicon glyphicon-list-alt"></span> 주문 완료 </h2>
+<hr width="800">
+<br/>
+
+<div class="table-responsive" align=center >
+  <table class="table" align=center >
+    
+      <tr align="center" bgcolor="#EFFBFB">
+        
+        <td><b>주문&nbsp;날짜</b></td>
+        <td><b>상품&nbsp;이름</b></td>
+        <td><b>결제&nbsp;금액</b></td>
+        <td><b>수&nbsp;량</b></td>
+        <td><b>배&nbsp;송&nbsp;비<b></td>       
+        <td><b>상&nbsp;품&nbsp;평</b></td>
+       
+      </tr>
+
+      <!-- 주문 할 때마다 아래쪽을 돌려서 추가 (삭제 추가할까요?)-->
+     
+      <tr align=center ng-repeat="boughtthing in boughtitems |orderBy : '-time' | offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+        
+        <td style="vertical-align:middle;">{{boughtthing.time}}</td>
+        <td style="vertical-align:middle;">{{boughtthing.brand}}</br>{{boughtthing.things}}</td>
+        <td style="vertical-align:middle;">{{boughtthing.price}}원</td>
+        <td style="vertical-align:middle;">{{boughtthing.qty}}</td>
+        <td style="vertical-align:middle;">{{boughtthing.delivery_charge}}원</td>
+        <td><a href="#/{{boughtthing.upper_category}}/{{boughtthing.sub_category}}/{{boughtthing.item_id}}"><button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> 상품평 쓰기</button></a></td>
+      
+      </tr>
+   
+  </table>
+
+</div>
+
+
+<div class="tfoot">
+    <tfoot >
+        <td colspan="3">
+          <div class="pagination">
+            <ul class="pagination">
+              <li>
+                <a href ng-click="prevPage()">&laquo;</a>
+              </li>
+              <li ng-repeat="n in range()" 
+                  ng-class="{active: n == currentPage}"
+                  ng-click="setPage(n)"
+                 >
+                  <a href="">{{n+1}}</a>
+              </li>
+              <li>
+                <a href ng-click="nextPage()">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tfoot>
+ </div>

@@ -1,0 +1,109 @@
+<!-- 주문 페이지-->
+
+</br>
+
+<h2 align=center class="text-info">
+<span class="glyphicon glyphicon-credit-card"></span> 주문 / 결제 
+</h2>
+
+<div class="table-responsive" align=center>
+  <table class="table" align=center width="500">
+  <tr colespan="2" >
+   <td><h4 align=left span style="color:#5882FA"><b>1. 구매자 정보 </b></h4>
+   <td></td>
+   </td>
+  </tr>
+   
+      <tr>
+        <th align="left" > 이&nbsp;름 </th>
+        <td> {{user.fullName}} </td>
+      </tr>
+
+      <tr>
+        <th align="left"> 휴대 전화 </th>
+        <td> {{user.phone}}</td>
+      </tr>
+
+      <tr>
+        <th align="left"> e-mail </th>
+        <td> {{user.username}}</td>
+      </tr>
+
+      <tr>
+        <th align="left"> 배송 주소 </th>
+        <td> {{user.address}}</td>
+        </tr>
+
+      <tr align="right">
+        <td> </td>
+        <td colespan="2" rowspan="2"><a href="#/usermodify"><button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span> 수정하기 </button></a></td>
+      </tr>
+  </table>
+
+  </br>
+</div>
+
+<div class="table-responsive" align=center>
+  <table class="table" align=center width="500">
+   <tr colespan="2" >
+    <td><h4 align=left span style="color:#5882FA"><b>2. 결제 정보 </b></h4></td>
+    <td></td>
+    <td></td>
+   </tr>
+
+    <tr>
+    <!-- 그림을 표시해주는 곳. 각 아이템인 singleProduct의 picture_url은 A1-003.jpg 의 형식을 나타내고 있다. ..은 public폴더를 의미한다. 컨트롤러의 {{img}}로 정의된 것은 A3-004.jpg 와 같은 형식의 파일을 의미한다.-->
+      <td  rowspan="5" >
+        <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}/{{singleProduct.item_id}}"><img ng-src="../images/{{img}}" height="100" width="100"/></a>
+      </td>
+      
+      <th> 제&nbsp;품&nbsp;명 </th>
+      <td>
+      <!-- 상품의 이름을 표시해주는 부분. 누르면 제품의 상세정보 페이지로 이동함. -->
+        <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}/{{singleProduct.item_id}}"> {{singleProduct.things}}
+        </a></br>
+     <tr>
+      <th> 수&nbsp;량 </th>
+       <td>    
+       {{singleProduct.dummyqty}}
+      </td>
+    </tr>
+        </br>
+   
+    
+    <tr> 
+      <th> 가&nbsp;격 </th>
+      <td>{{singleProduct.price}}&nbsp;원 </td>
+    </tr> 
+
+    <tr>
+      <th>배&nbsp;송&nbsp;료 </th>
+      <td>{{singleProduct.delivery_charge}}&nbsp;원</td>      
+    </tr>
+    <tr>
+      <th>합&nbsp;계 </th>
+      <td>{{singleProduct.delivery_charge+singleProduct.price*singleProduct.dummyqty}}&nbsp;원</td>      
+    </tr>
+  </table>
+</div>
+
+  <br/>
+  <br/>
+  
+
+<div align=center>
+  <!-- 결제하기 버튼을 누르면 #/orderPay에 해당하는 결제 페이지로 이동함. -->
+  <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}/{{singleProduct.item_id}}/order/orderSuccess"><button ng-click="saveboughtitem()" class="btn btn-success"><span class="glyphicon glyphicon-barcode"></span> 결제하기</button></a>
+
+
+
+  <!-- 장바구니 버튼을 누르면 addCart function이 실행되며 #/shoppingcart라는 쇼핑카트 페이지로 이동함. -->
+  <a href="#/shoppingcart"><button ng-click="addCartinorder()" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"></span>
+  장바구니</button> </a>
+
+  <!-- 다른 상품 보기를 누르면 기존 상품이 있던 sub_category 메뉴로 돌아감. -->
+  <a href="#/{{singleProduct.upper_category}}/{{singleProduct.sub_category}}"><button class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span> 다른 상품 보기</button> </a>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+/*orderPay.css*/ 
+
+button {
+  border-radius: 100;
+}
+
+.table {
+  width: 700px;
+  text-align :center;
+  vertical-align: center;
+}
+.table th {
+  text-align :center;
+  vertical-align: center;
+}

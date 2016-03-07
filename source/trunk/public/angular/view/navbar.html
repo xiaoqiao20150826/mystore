@@ -1,0 +1,149 @@
+
+<div class="navbar navbar-default navbar-static-top" ng-controller='NavbarCtrl' role="navigation">
+ <a class="navbar-brand" href="#" style="color:#088A85">MEAN Shopping Mall</a>
+
+  <div id="top-bar" class="collapse navbar-collapse" collapse="navCollapsed">
+  <!-- userSession에 값이 있을 경우 ul을 숨김 -->
+    <ul class="nav navbar-nav navbar-right" ng-hide="userSession">
+      <li><a href="#login" ui-sref="login"><span class="glyphicon glyphicon-user" style="color:#088A85"> 로그인</span></a></li>
+      <li><a href="#register"><span class="glyphicon glyphicon-folder-open" style="color:#088A85"> 회원가입</span></a></li>
+    </ul>
+
+    <!-- userSession에 값이 있을 경우 ul을 보임 -->
+    <ul class="nav navbar-nav navbar-right" ng-show="userSession">
+      <li><a href=""><span class="glyphicon glyphicon-user" style="color:#088A85"> {{userSession.fullName}} 님, 환영합니다.</span></a></li>
+      <li><a href="#usermodify"><span class="glyphicon glyphicon-pencil" style="color:#088A85">정보수정</span></a></li>
+      <li><a href="#shoppingcart"><span class="glyphicon glyphicon-shopping-cart" style="color:#088A85">장바구니</span></a></li>
+      <li><a href="#ordercheck"><span class="glyphicon glyphicon-list" style="color:#088A85">주문내역</span></a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out" style="color:#088A85">로그아웃</span></a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-header">
+    <!-- 화면 작을때 아이콘 줄표시 (로그인/회원가입) -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+      <span class="glyphicon glyphicon-user"></span>
+    </button>
+
+    <!-- 화면 작을때 아이콘 줄표시 (메뉴) -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse" ng-init="navCollapsed1 = true" ng-click="navCollapsed1 = !navCollapsed1">
+      <span class="glyphicon glyphicon-list"></span>
+    </button>
+  </div>
+
+    <div id="menu"class="navbar-collapse collapse" collapse="navCollapsed1">
+      <ul class="nav navbar-nav navbar-middle">
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown" >화장품 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/화장품/스킨케어">스킨케어</a></li>
+              <li><a href="#/화장품/메이크업">메이크업</a></li>
+              <li><a href="#/화장품/향수">향수</a></li>
+              <li><a href="#/화장품/바디.헤어케어">바디/헤어케어</a></li>
+              <li><a href="#/화장품/남성화장품">남성화장품</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">잡화<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/잡화/여성가방">가방</a></li>
+              <li><a href="#/잡화/구두">구두</a></li>
+              <li><a href="#/잡화/시계">시계</a></li>
+              <li><a href="#/잡화/주얼리">주얼리</a></li>
+              <li><a href="#/잡화/명품">명품</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">여성의류 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/여성의류/여성상의(outer)">상의(outer)</a></li>
+              <li><a href="#/여성의류/여성상의(inner)">상의(inner)</a></li>
+              <li><a href="#/여성의류/여성하의(치마)">치마</a></li>
+              <li><a href="#/여성의류/여성하의(바지)">바지</a></li>
+              <li><a href="#/여성의류/여성원피스">원피스</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">남성의류 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/남성의류/남성셔츠">셔츠</a></li>
+              <li><a href="#/남성의류/남성팬츠">팬츠</a></li>
+              <li><a href="#/남성의류/남성자켓">자켓</a></li>
+              <li><a href="#/남성의류/남성니트">니트</a></li>
+              <li><a href="#/남성의류/남성코트">코트</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">스포츠.레저 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/스포츠.레저/수영복.용품">수영복.용품</a></li>
+              <li><a href="#/스포츠.레저/등산.텐트.침낭.용품">등산.텐트.침낭.용품</a></li>
+              <li><a href="#/스포츠.레저/헬스용품">헬스용품</a></li>
+              <li><a href="#/스포츠.레저/스키보드 의류.용품">스키보드 의류.용품</a></li>
+              <li><a href="#/스포츠.레저/스포츠 슈즈">스포츠 슈즈</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">유아동<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/유아동/유아의류">유아의류</a></li>
+              <li><a href="#/유아동/여아 아동의류">여아 아동의류</a></li>
+              <li><a href="#/유아동/남아 아동의류">남아 아동의류</a></li>
+              <li><a href="#/유아동/여아 주니어의류">여아 주니어의류</a></li>
+              <li><a href="#/유아동/남아 주니어의류">남아 주니어의류</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">가전.컴퓨터<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/가전.컴퓨터/TV.냉장고.세탁기.계절가전">TV.냉장고.세탁기.계절가전</a></li>
+              <li><a href="#/가전.컴퓨터/디카.DSLR.캠코더">디카.DSLR.캠코더</a></li>
+              <li><a href="#/가전.컴퓨터/스마트폰내비.MP3.학습기기">스마트폰내비.MP3.학습기기</a></li>
+              <li><a href="#/가전.컴퓨터/노트북.태블릿.데스크탑">노트북.태블릿.데스크탑</a></li>
+              <li><a href="#/가전.컴퓨터/컴퓨터 주변기기.게임">컴퓨터 주변기기.게임</a>
+              </li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">가구.침구.인테리어<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/가구.침구.인테리어/소파.침대.옷장">소파.침대.옷장</a></li>
+              <li><a href="#/가구.침구.인테리어/책상.의자.식탁.싱크대">책상.의자.식탁.싱크대</a></li>
+              <li><a href="#/가구.침구.인테리어/침구류">침구류</a></li>
+              <li><a href="#/가구.침구.인테리어/커튼.카페트.인테리어">커튼.카페트.인테리어
+              </a></li>
+              <li><a href="#/가구.침구.인테리어/아동.수납.사무가구">아동.수납.사무가구</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">주방.생활.건강<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/주방.생활.건강/바디.욕실용품">바디.욕실용품</a></li>
+              <li><a href="#/주방.생활.건강/생활용품">생활용품</a></li>
+              <li><a href="#/주방.생활.건강/주방.식기">주방.식기</a></li>
+              <li><a href="#/주방.생활.건강/건강관리.실버">건강관리.실버</a></li>
+              <li><a href="#/주방.생활.건강/악기">악기</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href class="dropdown-toggle" data-toggle="dropdown">식품<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#/식품/신선식품(쌀.야채)">신선식품(쌀.야채)</a></li>
+              <li><a href="#/식품/신선식품(과일)">신선식품(과일)</a></li>
+              <li><a href="#/식품/가공식품">가공식품</a></li>
+              <li><a href="#/식품/즉석식품">즉석식품</a></li>
+              <li><a href="#/식품/건강.다이어트식품">건강.다이어트식품</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+</div>
