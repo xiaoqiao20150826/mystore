@@ -2,7 +2,7 @@
   /* App Module */
  
  var meanMall = angular.module('meanMall', [
-   'ngRoute','productController','productService','ui.bootstrap','ngAnimate',
+   'ngRoute','productController','productService','ngAnimate',
  ]);
 
 

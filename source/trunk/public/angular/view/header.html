@@ -1,0 +1,70 @@
+<!-- start header -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <a href="/">大学生二手交易商城</a>
+            </div>
+            <div class="log_reg" ng-controller='NavbarCtrl'>
+                <ul ng-hide="userSession">
+                    <li><a href="#login">登录</a> </li>
+                    <span class="log"> | </span>
+                    <li><a href="#register">注册</a> </li>
+                    <div class="clear"></div>
+                </ul>
+                <ul ng-show="userSession">
+                    <li><a href="login.html">{{userSession.fullName}}</a> </li>
+                    <span class="log"> | </span>
+                    <li><a href="#usermodify">修改账户信息</a> </li>
+                    <li><a href="#ordercheck">订单列表</a> </li>
+                    <li><a href="/logout">退出</a> </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="web_search">
+                <form>
+                    <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" placeholder="请输入你想要搜索的商品">
+                    <input type="submit" value=" " />
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- start header_btm -->
+<div class="wrap">
+    <div class="header_btm">
+        <div class="menu">
+            <ul>
+                <li class="active"><a href="index.html">首页</a></li>
+                <li><a href="products.html">书籍</a></li>
+                <li><a href="about.html">生活用品</a></li>
+                <li><a href="index.html">水卡</a></li>
+                <li><a href="blog.html">发布闲置</a></li>
+                <li><a href="contact.html">查看闲置</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <!-- <div id="smart_nav">
+			<a class="navicon" href="#menu-left"> </a>
+		</div>
+		<nav id="menu-left">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">products</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="index.html">pages</a></li>
+				<li><a href="blog.html">blog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<div class="clear"></div>
+			</ul>
+		</nav> -->
+        <div class="header_right">
+            <ul>
+                <li><a title="收藏" href="#"><i class="art"></i><span class="color1">30</span></a></li>
+                <li><a title="购物车" href="#shoppingcart"><i class="cart"></i><span>0</span></a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

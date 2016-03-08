@@ -1,67 +1,74 @@
-﻿<!doctype html>
-<!-- 화면 전체를 구성하는 레이아웃 페이지 -->
-<html lang="kr" ng-app="meanMall">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>MEAN Shopping Mall</title>
-
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="/angular/css/app.css">
-        <link rel='stylesheet', href='/angular/css/navbar.css'>
-        <link rel='stylesheet', href='/angular/css/productList.css'>
-        <link rel='stylesheet', href='/angular/css/productDetail.css'>
-        <link rel='stylesheet', href='/angular/css/order.css'>
-        <link rel='stylesheet', href='/angular/css/cart.css'>
-        <link rel='stylesheet', href='/angular/css/SB.css'>
-        <link rel='stylesheet', href='/angular/css/orderPay.css'>
-        <link rel='stylesheet', href='/angular/css/loginRegister.css'>
-    
-        <script src='/bower_components/angular/angular.js'></script>
-        <script src='/bower_components/angular-route/angular-route.js'></script>
-        <script src='/bower_components/angular-animate/angular-animate.js'></script>
-        <script src='/bower_components/angular-touch/angular-touch.js'></script>
-        <script src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.js'></script>
-        <script src='/bower_components/angular-bootstrap/ui-bootstrap.js'>
-        </script>
-        <script src='/bower_components/jquery/dist/jquery.js'></script>
-        <script src='/bower_components/angular-animate/angular-animate.js'>
-        </script>
-
-        <!-- Service Scripts 불러옴. -->
-        <script src="/angular/scripts/services/BoughtItems.js"></script>       
-        <script src="/angular/scripts/services/Carts.js"></script>
-        <script src="/angular/scripts/services/Offset.js"></script>
-        <script src="/angular/scripts/services/Products.js"></script>
-        <script src="/angular/scripts/services/Users.js"></script>
-        
-        <script src="/angular/scripts/app.js"></script>
-
-        <!-- Controller Scripts 불러옴. -->
-        <script src="/angular/scripts/controllers/main.js"></script>
-        <script src="/angular/scripts/controllers/order.js"></script>               
-        <script src="/angular/scripts/controllers/orderCheck.js"></script>
-        <script src="/angular/scripts/controllers/orderPay.js"></script>
-        <script src="/angular/scripts/controllers/orderSuccess.js"></script>
-        <script src="/angular/scripts/controllers/productDetail.js">
-        </script>
-        <script src="/angular/scripts/controllers/sub_category.js"></script>
-        <script src="/angular/scripts/controllers/navbar.js"></script>
-        <script src="/angular/scripts/controllers/cart.js"></script>
+﻿<!DOCTYPE HTML>
+<html ng-app="meanMall">
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/angular/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--- start-mmmenu-script---->
+    <script src="/angular/scripts/mine/jquery.min.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="/angular/css/jquery.mmenu.all.css" />
+    <!-- <script type="text/javascript" src="js/jquery.mmenu.js"></script>
+        <script type="text/javascript">
+            //  The menu on the left
+            $(function() {
+                $('nav#menu-left').mmenu();
+            });
+        </script> -->
+    <!-- start slider -->
+    <link href="/angular/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="/angular/scripts/mine/jquery.eislideshow.js"></script>
+    <script type="text/javascript" src="/angular/scripts/mine/easing.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#ei-slider').eislideshow({
+            animation: 'center',
+            autoplay: true,
+            slideshow_interval: 3000,
+            titlesFactor: 0
+        });
+    });
+    </script>
+    <!-- start top_js_button -->
+    <script type="text/javascript" src="/angular/scripts/mine/move-top.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 1200);
+        });
+    });
+    </script>
+    <script src='/assets/libs/angular/angular.js'></script>
+    <script src='/assets/libs/angular-route/angular-route.js'></script>
+    <script src='/assets/libs/angular-animate/angular-animate.js'></script>
+    <!-- services Scripts -->
+    <script src="/angular/scripts/services/BoughtItems.js"></script>
+    <script src="/angular/scripts/services/Carts.js"></script>
+    <script src="/angular/scripts/services/Offset.js"></script>
+    <script src="/angular/scripts/services/Products.js"></script>
+    <script src="/angular/scripts/services/Users.js"></script>
+    <script src="/angular/scripts/app.js"></script>
+    <!-- Controller Scripts -->
+    <script src="/angular/scripts/controllers/main.js"></script>
+    <script src="/angular/scripts/controllers/order.js"></script>
+    <script src="/angular/scripts/controllers/orderCheck.js"></script>
+    <script src="/angular/scripts/controllers/orderPay.js"></script>
+    <script src="/angular/scripts/controllers/orderSuccess.js"></script>
+    <script src="/angular/scripts/controllers/productDetail.js"></script>
+    <script src="/angular/scripts/controllers/sub_category.js"></script>
+    <script src="/angular/scripts/controllers/navbar.js"></script>
+    <script src="/angular/scripts/controllers/cart.js"></script>
 
   </head>
 
   <body>
-    <!-- 상단메뉴바 -->
-    <div ng-include="" src="'/angular/view/navbar.html'"></div>
+    <div ng-include="" src="'/angular/view/header.html'"></div>
 
-    <!-- 이 부분에 나머지 뷰들이 퐁당 빠짐 -->
     <div class="container" ng-view=""></div>
-
-    <!-- Site footer -->
-    <div class="footer">
-      <p style="color:#088A85">&copy;2014 MEAN Shopping Mall Company</p>
-    </div>
-
+    
+    <div ng-include="" src="'/angular/view/footer.html'"></div>
   </body>
 </html>

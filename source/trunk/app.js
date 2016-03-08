@@ -80,4 +80,10 @@ passport.serializeUser(Account.serializeUser());
 // HTTP Request의 리턴
 passport.deserializeUser(Account.deserializeUser());
 
+var port = process.env.PORT || 3000;
+
+app.listen(port);
+
+console.log('server is running on: '+port);
+
 module.exports = app;

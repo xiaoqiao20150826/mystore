@@ -1,2 +1,2 @@
 
-angular.module('meanMall', ['productController', 'productService', 'ui.bootstrap', 'ngResource','ngAnimate']);
+angular.module('meanMall', ['productController', 'productService', 'ngResource','ngAnimate']);
